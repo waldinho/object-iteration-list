@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var root = 'data.json';
+
+    $.ajax({
+        url: root,
+        method: 'GET'
+    }).then(function(data) {
+        console.log(data);
+        $.each(data, function(i, order) {
+            // $("#my_orders").append("<li> id: " + data[i].order.id + "</li>");
+            $("#my_orders").append("<h2>" + data[i].order.name + "</h2>");
+            $("#my_orders").append('<img src="' + data[i].order.img + '"/>')
+        });
+    });
+    </script>
+    <title>JS - Object iteration</title>
+</head>
+
+<body>
+    <ul id="my_orders"></ul>
+</body>
+
+</html>
